@@ -1,0 +1,597 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SQM: Retrospective: the October 2020 valuation, 2020-10-16</title>
+<meta name="description" content="SQM equity research report with valuation date 2020-10-16, built from public filings.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body>
+<main class="page report">
+<p class="back"><a href="../../index.html">Ignacio Mendoza Rojas</a> · <a href="https://github.com/IgnacioMendozaRojas/equity-research-engine">Code for this report</a></p>
+<h1>SQM: Retrospective: the October 2020 valuation</h1>
+<p><em>Sociedad Química y Minera de Chile S.A. · NYSE: SQM · Santiago: SQM-B · valuation date 16 October 2020</em></p>
+<blockquote>
+<p>Prepared with public information only, as a portfolio exercise. Not investment advice.</p>
+</blockquote>
+<h2>Investment summary</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th></th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Rating</td>
+<td>HOLD</td>
+</tr>
+<tr>
+<td>Target price (CLP)</td>
+<td>27,409</td>
+</tr>
+<tr>
+<td>Share price (CLP), 16 Oct 2020</td>
+<td>27,158</td>
+</tr>
+<tr>
+<td>Upside / downside</td>
+<td>+0.9%</td>
+</tr>
+<tr>
+<td>Target price (US$)</td>
+<td>34.89</td>
+</tr>
+<tr>
+<td>Shares outstanding (m)</td>
+<td>263.2</td>
+</tr>
+<tr>
+<td>Market capitalisation (US$ m)</td>
+<td>9,100</td>
+</tr>
+<tr>
+<td>Net financial debt (US$ m, 2019-12-31)</td>
+<td>686</td>
+</tr>
+<tr>
+<td>Enterprise value at market (US$ m)</td>
+<td>9,834</td>
+</tr>
+<tr>
+<td>Discount rate (WACC)</td>
+<td>7.25%</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>What the model said in October 2020.</strong> With only the information available on 16 October 2020, the model valued SQM at US$34.89 per share (CLP 27,409), against a price of CLP 27,158. That is a <strong>HOLD</strong> at +1%. The DCF gives US$36.62 and the residual income model gives US$30.86. The price implied a long-run lithium price of about US$11,800/t, in line with the US$12,000/t deck.</p>
+<p><strong>What happened next.</strong> The lithium price went from about US$6,000/t to US$52,000/t in two years, then fell back. The model's 2025 volume of 180 kt was beaten by 30%, and its revenue path was beaten every year. Yet the backtest below shows the value that hindsight adds is smaller than the move in the shares:</p>
+<ul>
+<li><strong>The spike was captured by Corfo and the tax authority.</strong> The 2018 lease takes 40% of every dollar of price above US$10,000/t, and then income tax applies.</li>
+<li><strong>The extra volume came with extra capex.</strong> Capex in 2022-2024 was three to six times what the model assumed.</li>
+<li><strong>The Codelco agreement cut the post-2030 share to about 15%.</strong></li>
+</ul>
+<p>The rise in the share price since 2020 is mostly a higher long-run lithium price in investors' minds, not cash already earned.</p>
+<h2>Valuation</h2>
+<p>Blended target: <strong>70% DCF (US$36.62) + 30% residual income (US$30.86) = US$34.89 per share.</strong> Both use the same projection and the same cost of equity. The projection is built by segment as volume × price, with the Corfo lease, levies, capex tied to capacity, and the fiscal regime of each period. It runs explicitly to 2060, so the terminal value is only 12% of the enterprise value.</p>
+<p><picture>
+  <source media="(prefers-color-scheme: dark)" srcset="figures/value-by-segment-2020-10-16-dark.png">
+  <img alt="Enterprise value by business line" src="figures/value-by-segment-2020-10-16-light.png">
+</picture></p>
+<p><strong>From enterprise to equity value</strong> (balance sheet 2019-12-31)</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th></th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Enterprise value (DCF)</td>
+<td>10,594.6</td>
+</tr>
+<tr>
+<td>+ Cash and equivalents</td>
+<td>588.5</td>
+</tr>
+<tr>
+<td>+ Other current financial assets</td>
+<td>505.5</td>
+</tr>
+<tr>
+<td>- Financial debt</td>
+<td>-1,779.9</td>
+</tr>
+<tr>
+<td>- Minority interests</td>
+<td>-48.2</td>
+</tr>
+<tr>
+<td>+/- Other (see assumptions)</td>
+<td>-222.0</td>
+</tr>
+<tr>
+<td>= Equity value</td>
+<td>9,638.6</td>
+</tr>
+<tr>
+<td>Per share (US$)</td>
+<td>36.6</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Discount rate</strong></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th></th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Risk-free rate</td>
+<td>1.23%</td>
+</tr>
+<tr>
+<td>Equity risk premium (mature market)</td>
+<td>5.20%</td>
+</tr>
+<tr>
+<td>Country risk premium x exposure</td>
+<td>0.84% x 1.00</td>
+</tr>
+<tr>
+<td>Unlevered beta (EBITDA-weighted)</td>
+<td>1.03</td>
+</tr>
+<tr>
+<td>Target debt / equity</td>
+<td>20.00%</td>
+</tr>
+<tr>
+<td>Levered beta</td>
+<td>1.18</td>
+</tr>
+<tr>
+<td>Cost of equity</td>
+<td>8.23%</td>
+</tr>
+<tr>
+<td>Pre-tax cost of debt</td>
+<td>3.23%</td>
+</tr>
+<tr>
+<td>WACC</td>
+<td>7.25%</td>
+</tr>
+</tbody>
+</table></div>
+<p>No size premium and no company-specific premium: company risks are in the cash flows and the scenarios. The unlevered beta blends lithium and chemicals betas by each group's share of SQM's projected EBITDA.</p>
+<p><strong>Projection (US$ m unless stated)</strong></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th></th>
+<th>2020</th>
+<th>2021</th>
+<th>2022</th>
+<th>2023</th>
+<th>2024</th>
+<th>2025</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Revenue (consolidated)</td>
+<td>1,810</td>
+<td>2,112</td>
+<td>2,532</td>
+<td>2,983</td>
+<td>3,475</td>
+<td>3,939</td>
+</tr>
+<tr>
+<td>EBITDA, 100% basis</td>
+<td>505</td>
+<td>608</td>
+<td>792</td>
+<td>1,005</td>
+<td>1,224</td>
+<td>1,414</td>
+</tr>
+<tr>
+<td>EBITDA, SQM's economic share</td>
+<td>505</td>
+<td>608</td>
+<td>792</td>
+<td>1,005</td>
+<td>1,224</td>
+<td>1,414</td>
+</tr>
+<tr>
+<td>Capex</td>
+<td>393</td>
+<td>292</td>
+<td>316</td>
+<td>152</td>
+<td>177</td>
+<td>200</td>
+</tr>
+<tr>
+<td>Free cash flow to SQM</td>
+<td>112</td>
+<td>55</td>
+<td>148</td>
+<td>474</td>
+<td>602</td>
+<td>718</td>
+</tr>
+<tr>
+<td>Lithium volume (kt)</td>
+<td>62</td>
+<td>90</td>
+<td>120</td>
+<td>140</td>
+<td>160</td>
+<td>180</td>
+</tr>
+<tr>
+<td>Lithium price (US$/t)</td>
+<td>5,900</td>
+<td>6,500</td>
+<td>8,000</td>
+<td>9,500</td>
+<td>11,000</td>
+<td>12,000</td>
+</tr>
+</tbody>
+</table></div>
+<p><em>100% basis</em> includes every operation in full, after lease payments while they apply. <em>SQM's economic share</em> applies each period's fiscal regime: where the state's take is set as a share of the margin, lease payments are part of that take, so the 100% figure can jump when a lease ends.</p>
+<p><strong>DCF value per share (US$): discount rate × long-run lithium price (US$/t)</strong></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th></th>
+<th>8,400</th>
+<th>10,200</th>
+<th>12,000</th>
+<th>13,800</th>
+<th>15,600</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>6.25%</td>
+<td>38.7</td>
+<td>42.5</td>
+<td>46.0</td>
+<td>49.5</td>
+<td>52.9</td>
+</tr>
+<tr>
+<td>6.75%</td>
+<td>34.1</td>
+<td>37.6</td>
+<td>40.8</td>
+<td>44.1</td>
+<td>47.3</td>
+</tr>
+<tr>
+<td>7.25%</td>
+<td>30.3</td>
+<td>33.6</td>
+<td>36.6</td>
+<td>39.6</td>
+<td>42.6</td>
+</tr>
+<tr>
+<td>7.75%</td>
+<td>27.2</td>
+<td>30.3</td>
+<td>33.1</td>
+<td>35.9</td>
+<td>38.7</td>
+</tr>
+<tr>
+<td>8.25%</td>
+<td>24.6</td>
+<td>27.5</td>
+<td>30.2</td>
+<td>32.8</td>
+<td>35.4</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>DCF value per share (US$): discount rate × terminal growth of perpetual segments</strong></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th></th>
+<th>0%</th>
+<th>1%</th>
+<th>2%</th>
+<th>3%</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>6.25%</td>
+<td>43.1</td>
+<td>44.3</td>
+<td>46.0</td>
+<td>48.8</td>
+</tr>
+<tr>
+<td>6.75%</td>
+<td>38.8</td>
+<td>39.7</td>
+<td>40.8</td>
+<td>42.6</td>
+</tr>
+<tr>
+<td>7.25%</td>
+<td>35.2</td>
+<td>35.8</td>
+<td>36.6</td>
+<td>37.8</td>
+</tr>
+<tr>
+<td>7.75%</td>
+<td>32.1</td>
+<td>32.5</td>
+<td>33.1</td>
+<td>33.9</td>
+</tr>
+<tr>
+<td>8.25%</td>
+<td>29.4</td>
+<td>29.7</td>
+<td>30.2</td>
+<td>30.7</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Scenarios</strong></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th></th>
+<th>Scenario</th>
+<th>Target (US$)</th>
+<th>Upside</th>
+<th>Rating</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>base</td>
+<td>Assumptions as stated</td>
+<td>34.89</td>
+<td>+1%</td>
+<td>HOLD</td>
+</tr>
+<tr>
+<td>bear</td>
+<td>Lithium settles at US$9,000/t and the concession is renewed only with 25% probability</td>
+<td>27.99</td>
+<td>-19%</td>
+<td>SELL</td>
+</tr>
+<tr>
+<td>bull</td>
+<td>Lithium reaches US$16,000/t and the concession is renewed with 75% probability</td>
+<td>46.32</td>
+<td>+34%</td>
+<td>BUY</td>
+</tr>
+</tbody>
+</table></div>
+<p><picture>
+  <source media="(prefers-color-scheme: dark)" srcset="figures/montecarlo-2020-10-16-dark.png">
+  <img alt="Monte Carlo distribution" src="figures/montecarlo-2020-10-16-light.png">
+</picture></p>
+<p>Prices follow a mean-reverting lognormal process around the deck (persistence φ = 0.7, annual volatility from the realised price history: Lithium and derivatives 40%, Iodine and derivatives 22%, Specialty plant nutrition 2%, Potassium chloride and potassium sulfate 19%). Median US$35.1, 5th-95th percentile US$25.7 to US$48.7.</p>
+<p><strong>Model checks: what three common errors would do to this valuation</strong></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th></th>
+<th>DCF per share (US$)</th>
+<th>vs correct</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Correct model</td>
+<td>36.62</td>
+<td>+0.0%</td>
+</tr>
+<tr>
+<td>Perpetuity on the finite lithium concession</td>
+<td>38.51</td>
+<td>+5.2%</td>
+</tr>
+<tr>
+<td>Terminal value discounted mid-year</td>
+<td>36.79</td>
+<td>+0.5%</td>
+</tr>
+<tr>
+<td>Cash left out of the equity bridge</td>
+<td>32.46</td>
+<td>-11.4%</td>
+</tr>
+</tbody>
+</table></div>
+<h2>Backtest: forecast vs what happened</h2>
+<p><picture>
+  <source media="(prefers-color-scheme: dark)" srcset="figures/backtest-lithium-price-dark.png">
+  <img alt="Lithium price forecast vs realised" src="figures/backtest-lithium-price-light.png">
+</picture></p>
+<p><strong>Forecast vs reported (US$ m unless stated)</strong></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th></th>
+<th>2020</th>
+<th>2021</th>
+<th>2022</th>
+<th>2023</th>
+<th>2024</th>
+<th>2025</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Lithium volume, forecast (kt)</td>
+<td>62</td>
+<td>90</td>
+<td>120</td>
+<td>140</td>
+<td>160</td>
+<td>180</td>
+</tr>
+<tr>
+<td>Lithium volume, reported (kt)</td>
+<td>65</td>
+<td>101</td>
+<td>157</td>
+<td>170</td>
+<td>205</td>
+<td>233</td>
+</tr>
+<tr>
+<td>Lithium price, forecast (US$/t)</td>
+<td>5,900</td>
+<td>6,500</td>
+<td>8,000</td>
+<td>9,500</td>
+<td>11,000</td>
+<td>12,000</td>
+</tr>
+<tr>
+<td>Lithium price, reported (US$/t)</td>
+<td>5,935</td>
+<td>9,259</td>
+<td>51,996</td>
+<td>30,471</td>
+<td>10,939</td>
+<td>9,175</td>
+</tr>
+<tr>
+<td>Revenue, forecast</td>
+<td>1,810</td>
+<td>2,112</td>
+<td>2,532</td>
+<td>2,983</td>
+<td>3,475</td>
+<td>3,939</td>
+</tr>
+<tr>
+<td>Revenue, reported</td>
+<td>1,817</td>
+<td>2,862</td>
+<td>10,711</td>
+<td>7,467</td>
+<td>4,529</td>
+<td>4,576</td>
+</tr>
+<tr>
+<td>EBITDA, forecast</td>
+<td>505</td>
+<td>608</td>
+<td>792</td>
+<td>1,005</td>
+<td>1,224</td>
+<td>1,414</td>
+</tr>
+<tr>
+<td>EBITDA, reported</td>
+<td>580</td>
+<td>1,185</td>
+<td>5,838</td>
+<td>3,180</td>
+<td>1,484</td>
+<td>1,580</td>
+</tr>
+<tr>
+<td>Capex, forecast</td>
+<td>393</td>
+<td>292</td>
+<td>316</td>
+<td>152</td>
+<td>177</td>
+<td>200</td>
+</tr>
+<tr>
+<td>Capex, reported</td>
+<td>322</td>
+<td>465</td>
+<td>905</td>
+<td>1,104</td>
+<td>972</td>
+<td></td>
+</tr>
+</tbody>
+</table></div>
+<p><picture>
+  <source media="(prefers-color-scheme: dark)" srcset="figures/backtest-value-walk-dark.png">
+  <img alt="Value walk from the 2020 model to hindsight" src="figures/backtest-value-walk-light.png">
+</picture></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th></th>
+<th>US$ per share</th>
+<th>Change</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Model in 2020</td>
+<td>36.62</td>
+<td></td>
+</tr>
+<tr>
+<td>+ actual lithium prices to date</td>
+<td>45.42</td>
+<td>+8.80</td>
+</tr>
+<tr>
+<td>+ actual prices and volumes, all segments</td>
+<td>50.52</td>
+<td>+5.10</td>
+</tr>
+<tr>
+<td>+ actual capex</td>
+<td>45.96</td>
+<td>-4.56</td>
+</tr>
+<tr>
+<td>+ Codelco agreement (state take 2025-2060)</td>
+<td>43.55</td>
+<td>-2.41</td>
+</tr>
+</tbody>
+</table></div>
+<p>With perfect knowledge of 2020-2025, the October 2020 value would have been US$43.55 per share, +26% against the price then (US$34.57). Shareholders actually earned +89% including dividends (ADR dividend-adjusted price 31.84 in October 2020, peak 74.22 in 2022-12, 60.20 in 2026-10). What actually happened to 2025 explains about 29% of that return. The rest is what the market now expects from lithium after 2026; the 2026 report puts a price on it.</p>
+<h2>Sources</h2>
+<ul>
+<li>Financial statements: SEC EDGAR XBRL API (Form 20-F, CIK 909037), 2015-2024; SQM 4Q2025 earnings release (Form 6-K) for 2025.</li>
+<li>Segment revenue, volumes and gross-profit shares: SQM full-year earnings releases, Form 6-K, 2016-2025; 1H2026 run-rate from the 2Q2026 release.</li>
+<li>Corfo lease schedule: SQM Form 6-K of January 2018 describing the Corfo agreement.</li>
+<li>Nova Andino terms: Codelco and SQM announcements of 31 May 2024 and December 2025.</li>
+<li>Market data: see companies/sqm/data/market.csv and share_prices.csv for each value's source and date.</li>
+<li>Assumptions: companies/sqm/assumptions/2020-10-16.yaml, each with its rationale.</li>
+<li>Generated by eqr on 19 Oct 2026.</li>
+</ul>
+</main>
+</body>
+</html>

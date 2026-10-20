@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ignacio Mendoza Rojas</title>
+<meta name="description" content="Financial risk and quantitative modelling. Research and tools built on real public data: equity valuation, mutual fund holdings, counterparty credit risk.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<main class="page">
+
+<header class="masthead">
+  <h1>Ignacio Mendoza Rojas</h1>
+  <p class="role">Financial Risk &amp; Modelling Analyst at Banco Ripley, based in Barcelona</p>
+  <div class="measure">
+    <p>I build the models behind counterparty and liquidity risk at a bank: potential future exposure for derivatives, deposit decay, CVA/DVA and Basel III liquidity projections. Before that I evaluated investments for a group of private clinics, and I won the CFA Institute Research Challenge for South America in 2021.</p>
+    <p>This page collects work I've done on my own time with real public data. Each section starts with what the analysis found, then links to the code.</p>
+  </div>
+  <p class="contact">
+    <a href="https://www.linkedin.com/in/ignaciomendozarojas">LinkedIn</a>
+    <a href="https://github.com/IgnacioMendozaRojas">GitHub</a>
+  </p>
+</header>
+
+<section class="finding" aria-labelledby="f-sqm">
+  <h2 id="f-sqm">At US$60, SQM's share price assumes lithium at about US$25,000 a tonne for the long run. My valuation, at US$15,000, gives US$42.</h2>
+  <div class="measure">
+    <p>A segment-by-segment valuation of the Chilean lithium and iodine producer from its public filings, with the Corfo lease, the Codelco agreement and 10,000 simulated commodity price paths. Only 15% of the paths value the shares above today's price.</p>
+    <p>It revisits the company my team covered in the CFA Research Challenge. The October 2020 valuation is kept and held against what happened next: the lithium spike went mostly to the state and to capex.</p>
+  </div>
+  <figure>
+    <picture>
+      <source media="(prefers-color-scheme: dark)" srcset="assets/fig/sqm-montecarlo-dark.png">
+      <img src="assets/fig/sqm-montecarlo-light.png" alt="Distribution of SQM value per share across 10,000 simulated price paths, with the current share price in the upper tail" loading="lazy" width="1024" height="672">
+    </picture>
+    <figcaption>Value per share across 10,000 price paths, October 2026. Sources: SEC and CMF filings, company reports.</figcaption>
+  </figure>
+  <p class="project">
+    <strong>equity-research-engine</strong>
+    <a href="research/sqm/2026-10-16.html">Read the October 2026 report</a>
+    <a href="research/sqm/2020-10-16.html">The 2020 valuation, backtested</a>
+    <a href="https://github.com/IgnacioMendozaRojas/equity-research-engine">Code</a>
+  </p>
+</section>
+
+<section class="finding" aria-labelledby="f-funds">
+  <h2 id="f-funds">Chilean mutual funds lend CLP 38.5 trillion to banks, and six banks take 78% of it.</h2>
+  <div class="measure">
+    <p>What every Chilean mutual fund held each month from 2019 to 2026, from 3.3 million holdings filed with the regulator. Bank deposits and bonds are half of the industry's assets, and more than half of the fixed income matures within a year. For a bank's liquidity team, that is short-term funding that can leave quickly.</p>
+    <p>In 2021-22 the money left the banks for Central Bank paper, during the pension withdrawals and the first rate hikes. Deposits only got back to their 2019 level in 2024.</p>
+  </div>
+  <figure>
+    <picture>
+      <source media="(prefers-color-scheme: dark)" srcset="assets/fig/funds-banks-dark.png">
+      <img src="assets/fig/funds-banks-light.png" alt="Bank deposits and bonds held by mutual funds by issuing bank, September 2026" loading="lazy" width="1200" height="753">
+    </picture>
+    <figcaption>Bank deposits and bonds held by mutual funds, by bank, September 2026. Source: CMF fund portfolio files.</figcaption>
+  </figure>
+  <p class="project">
+    <strong>chile-mutual-funds-analytics</strong>
+    <a href="https://github.com/IgnacioMendozaRojas/chile-mutual-funds-analytics">Findings and code</a>
+  </p>
+</section>
+
+<section class="finding" aria-labelledby="f-ccr">
+  <h2 id="f-ccr">A zero-threshold collateral agreement cuts this portfolio's peak exposure from 19 million to 5.7 million.</h2>
+  <div class="measure">
+    <p>A Monte Carlo engine for derivatives counterparty risk: Hull-White rates and FX simulation, netting and collateral, expected exposure, PFE, Basel EEPE, and CVA/DVA. Every pricing component is checked against a closed-form result. On the example netting set, netting alone cuts CVA by 26%.</p>
+  </div>
+  <figure>
+    <picture>
+      <source media="(prefers-color-scheme: dark)" srcset="assets/fig/ccr-collateral-dark.png">
+      <img src="assets/fig/ccr-collateral-light.png" alt="Expected exposure over time for three collateral agreements: uncollateralised, threshold 5 million and zero threshold" loading="lazy" width="1350" height="690">
+    </picture>
+    <figcaption>Expected exposure under three collateral agreements, 10,000 paths.</figcaption>
+  </figure>
+  <p class="project">
+    <strong>counterparty-credit-risk</strong>
+    <a href="https://github.com/IgnacioMendozaRojas/counterparty-credit-risk">Method, validation and code</a>
+  </p>
+</section>
+
+<section class="finding" aria-labelledby="f-rest">
+  <h2 id="f-rest">The recipes said food cost was 17% of sales. The purchases said 36%.</h2>
+  <div class="measure">
+    <p>Menu engineering, yield-adjusted ingredient usage and break-even on the real operating data of a restaurant I ran in 2023. The gap between recipe cost and actual spending is waste, portioning and price drift, and it moves break-even sales up by 30%.</p>
+  </div>
+  <figure>
+    <picture>
+      <source media="(prefers-color-scheme: dark)" srcset="assets/fig/rest-breakeven-dark.png">
+      <img src="assets/fig/rest-breakeven-light.png" alt="Break-even monthly sales rising with food cost percentage, against average monthly sales" loading="lazy" width="1350" height="750">
+    </picture>
+    <figcaption>Break-even sales by food cost. Business, staff and suppliers anonymised.</figcaption>
+  </figure>
+  <p class="project">
+    <strong>restaurant-analytics</strong>
+    <a href="https://github.com/IgnacioMendozaRojas/restaurant-analytics">Analysis and code</a>
+  </p>
+</section>
+
+<section class="section" aria-labelledby="h-tools">
+  <h2 id="h-tools">Data tools</h2>
+  <ul class="tools measure">
+    <li><a href="https://github.com/IgnacioMendozaRojas/cmf-ffmm-etl">cmf-ffmm-etl</a><br>Monthly pipeline that scrapes the holdings of every Chilean mutual fund from the regulator's portal, which has no API, runs quality checks and loads them into any SQL database.</li>
+    <li><a href="https://github.com/IgnacioMendozaRojas/db-migration-validator">db-migration-validator</a><br>Proves a database migration lost nothing: structure, row counts, content fingerprints and permissions, across Oracle, SQL Server, PostgreSQL and MySQL.</li>
+  </ul>
+</section>
+
+<section class="section" aria-labelledby="h-cv">
+  <h2 id="h-cv">Experience and education</h2>
+  <table class="cv">
+    <tr><td>2023 – present</td><td>Financial Risk &amp; Modelling Analyst, Banco Ripley, Chile</td></tr>
+    <tr><td>2023</td><td>Strategy &amp; Investment Analyst, Red Interclínica, Chile</td></tr>
+    <tr><td>2021 – 2023</td><td>Financial Risk Analyst, Banco Ripley, Chile</td></tr>
+    <tr><td>2025 – 2027</td><td>MSc in Business Research, Universitat de Barcelona</td></tr>
+    <tr><td>2020 – 2021</td><td>MSc in Finance, Universidad Adolfo Ibáñez</td></tr>
+    <tr><td>2016 – 2019</td><td>BSc in Business Administration and Economics, Universidad Adolfo Ibáñez</td></tr>
+  </table>
+  <p class="cv-note">Winner, CFA Institute Research Challenge, South America Regional Final, 2020–2021.</p>
+</section>
+
+<footer>
+  Everything here uses public data or my own anonymised records, and no employer code, data or parameters. The equity reports are a portfolio exercise, not investment advice.
+</footer>
+
+</main>
+</body>
+</html>
