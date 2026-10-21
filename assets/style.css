@@ -107,3 +107,5 @@ footer { padding: 2rem 0 3rem; font: 400 0.85rem/1.5 var(--sans); color: var(--m
   .cv td:first-child { width: 6.5rem; }
 }
 .report > p, .report > ul, .report > ol, .report > blockquote, .report li { max-width: 42rem; }
+.finding > .project:first-child { margin: 0 0 0.75rem; font-weight: 600; }
+.finding em { font-style: normal; font-family: var(--sans); font-size: 0.92em; color: var(--muted); }

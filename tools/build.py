@@ -16,10 +16,11 @@ SITE = Path(__file__).resolve().parents[1]
 REPOS = SITE.parent
 
 FIGURES = {
-    "sqm-montecarlo": "equity-research-engine/companies/sqm/reports/figures/montecarlo-2026-10-16-{theme}.png",
-    "funds-banks": "chile-mutual-funds-analytics/docs/figures/banks-{theme}.png",
-    "ccr-collateral": "counterparty-credit-risk/docs/collateral_effect_{theme}.png",
-    "rest-breakeven": "restaurant-analytics/docs/break_even_{theme}.png",
+    "ccr": "counterparty-credit-risk/docs/pfe-by-csa-{theme}.png",
+    "funds": "chile-mutual-funds-analytics/docs/figures/banks-{theme}.png",
+    "clinics": "chile-clinics-benchmark/docs/figures/allowance_coverage-{theme}.png",
+    "sqm": "equity-research-engine/companies/sqm/reports/figures/montecarlo-2026-10-16-{theme}.png",
+    "restaurant": "restaurant-analytics/docs/break_even_{theme}.png",
 }
 REPORTS = REPOS / "equity-research-engine/companies/sqm/reports"
 TEMPLATE = """<!doctype html>

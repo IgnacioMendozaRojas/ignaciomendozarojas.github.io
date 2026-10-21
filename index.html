@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Ignacio Mendoza Rojas</title>
-<meta name="description" content="Financial risk and quantitative modelling. Research and tools built on real public data: equity valuation, mutual fund holdings, counterparty credit risk.">
+<meta name="description" content="Risk and valuation models, and the data infrastructure that feeds them. Each competency with the tool built and what it found, on real public data.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap" rel="stylesheet">
@@ -17,8 +17,8 @@
   <h1>Ignacio Mendoza Rojas</h1>
   <p class="role">Financial Risk &amp; Modelling Analyst at Banco Ripley, based in Barcelona</p>
   <div class="measure">
-    <p>I build the models behind counterparty and liquidity risk at a bank: potential future exposure for derivatives, deposit decay, CVA/DVA and Basel III liquidity projections. Before that I evaluated investments for a group of private clinics, and I won the CFA Institute Research Challenge for South America in 2021.</p>
-    <p>This page collects work I've done on my own time with real public data. Each section starts with what the analysis found, then links to the code.</p>
+    <p>I build risk and valuation models, and the data infrastructure that feeds them. Five years in banking and corporate finance: counterparty and liquidity risk at Banco Ripley, and financial planning and investment evaluation at Red Interclínica in 2023, between my two roles at the bank.</p>
+    <p>Each section below is one competency: where I use it at work, the tool I rebuilt from public theory and real data, and what it found. No employer code, data or parameters.</p>
   </div>
   <p class="contact">
     <a href="https://www.linkedin.com/in/ignaciomendozarojas">LinkedIn</a>
@@ -26,88 +26,95 @@
   </p>
 </header>
 
-<section class="finding" aria-labelledby="f-sqm">
-  <h2 id="f-sqm">At US$60, SQM's share price assumes lithium at about US$25,000 a tonne for the long run. My valuation, at US$15,000, gives US$42.</h2>
+<section class="finding" aria-labelledby="c-ccr">
+  <p class="project"><strong>Counterparty credit risk &amp; derivatives</strong></p>
+  <h2 id="c-ccr">Daily margining cuts this portfolio's peak exposure by 70%, from 19.1 to 5.7 million.</h2>
   <div class="measure">
-    <p>A segment-by-segment valuation of the Chilean lithium and iodine producer from its public filings, with the Corfo lease, the Codelco agreement and 10,000 simulated commodity price paths. Only 15% of the paths value the shares above today's price.</p>
-    <p>It revisits the company my team covered in the CFA Research Challenge. The October 2020 valuation is kept and held against what happened next: the lithium spike went mostly to the state and to capex.</p>
+    <p><em>At work:</em> the stochastic PFE models behind counterparty limits, and CVA/DVA sensitivities. <em>Rebuilt here:</em> a Monte Carlo engine with Hull-White rates and FX, netting and collateral, EE, PFE, Basel EEPE and CVA/DVA, each pricer checked against a closed form. Netting alone cuts CVA by 26%.</p>
   </div>
   <figure>
     <picture>
-      <source media="(prefers-color-scheme: dark)" srcset="assets/fig/sqm-montecarlo-dark.png">
-      <img src="assets/fig/sqm-montecarlo-light.png" alt="Distribution of SQM value per share across 10,000 simulated price paths, with the current share price in the upper tail" loading="lazy" width="1024" height="672">
+      <source media="(prefers-color-scheme: dark)" srcset="assets/fig/ccr-dark.png">
+      <img src="assets/fig/ccr-light.png" alt="PFE under three collateral agreements: uncollateralised peaks at 19.1 million, daily margining stays near 2 million" loading="lazy" width="1350" height="720">
     </picture>
-    <figcaption>Value per share across 10,000 price paths, October 2026. Sources: SEC and CMF filings, company reports.</figcaption>
+  </figure>
+  <p class="project"><a href="https://github.com/IgnacioMendozaRojas/counterparty-credit-risk">counterparty-credit-risk: method, validation and code</a></p>
+</section>
+
+<section class="finding" aria-labelledby="c-liq">
+  <p class="project"><strong>Liquidity risk &amp; funding</strong></p>
+  <h2 id="c-liq">Six banks take 78% of the CLP 38.5 trillion Chilean mutual funds lend to banks, and that money has run before: 25% in one month.</h2>
+  <div class="measure">
+    <p><em>At work:</em> deposit decay, ILAAP projections under Basel III and cash-flow stress tests. <em>Rebuilt here:</em> every mutual fund's holdings since 2019, read from regulator files as a funding question: concentration by bank, maturity (56% within a year) and observed run-off rates of 25% in a month and 63% in a year, a calibration for a stress scenario. Updated monthly by a scheduled workflow.</p>
+  </div>
+  <figure>
+    <picture>
+      <source media="(prefers-color-scheme: dark)" srcset="assets/fig/funds-dark.png">
+      <img src="assets/fig/funds-light.png" alt="Bank deposits and bonds held by mutual funds by bank, September 2026: six banks hold 4.7 to 5.3 trillion pesos each" loading="lazy" width="1350" height="690">
+    </picture>
+  </figure>
+  <p class="project"><a href="https://github.com/IgnacioMendozaRojas/chile-mutual-funds-analytics">chile-mutual-funds-analytics: findings and code</a></p>
+</section>
+
+<section class="finding" aria-labelledby="c-credit">
+  <p class="project"><strong>Credit risk &amp; financial statement analysis</strong></p>
+  <h2 id="c-credit">Through the Isapre crisis, Clínica Las Condes' credit-loss allowance rose from 12.6% to 53.8% of its receivables; its peers barely moved.</h2>
+  <div class="measure">
+    <p><em>At work:</em> competitive benchmarking of Chilean clinic groups at Red Interclínica, built by hand in Excel. <em>Rebuilt here:</em> the same benchmark from every quarterly XBRL filing at the CMF since 2016, with receivables ageing, cost of risk, restatements logged and the order in which each indicator broke. Collection days moved first, in 2022. Updated twice a month.</p>
+  </div>
+  <figure>
+    <picture>
+      <source media="(prefers-color-scheme: dark)" srcset="assets/fig/clinics-dark.png">
+      <img src="assets/fig/clinics-light.png" alt="Allowance for credit losses as a share of receivables, 2016 to 2026: Clínica Las Condes rises to 53.8% while Indisa and RedSalud stay near 15 to 20%" loading="lazy" width="1350" height="720">
+    </picture>
+  </figure>
+  <p class="project"><a href="https://github.com/IgnacioMendozaRojas/chile-clinics-benchmark">chile-clinics-benchmark: method, validations and code</a></p>
+</section>
+
+<section class="finding" aria-labelledby="c-val">
+  <p class="project"><strong>Equity valuation &amp; investment analysis</strong></p>
+  <h2 id="c-val">At about US$60, SQM's share price implies lithium at US$25,000 a tonne for the long run. My valuation, on a US$15,000 deck, gives US$42.</h2>
+  <div class="measure">
+    <p><em>Background:</em> my team won the CFA Institute Research Challenge for South America in 2021 covering SQM, and I evaluated projects on a clinic group's investment committee (NPV, IRR, payback). <em>Rebuilt here:</em> a segment-by-segment valuation engine from public filings, DCF and residual income, 10,000 simulated price paths, and the 2020 valuation held against what happened next. The implied lithium price is recomputed every week.</p>
+  </div>
+  <figure>
+    <picture>
+      <source media="(prefers-color-scheme: dark)" srcset="assets/fig/sqm-dark.png">
+      <img src="assets/fig/sqm-light.png" alt="Distribution of SQM value per share across 10,000 simulated price paths; only 15% lie above the share price" loading="lazy" width="1350" height="720">
+    </picture>
   </figure>
   <p class="project">
-    <strong>equity-research-engine</strong>
     <a href="research/sqm/2026-10-16.html">Read the October 2026 report</a>
     <a href="research/sqm/2020-10-16.html">The 2020 valuation, backtested</a>
-    <a href="https://github.com/IgnacioMendozaRojas/equity-research-engine">Code</a>
+    <a href="https://github.com/IgnacioMendozaRojas/equity-research-engine">equity-research-engine: code</a>
   </p>
 </section>
 
-<section class="finding" aria-labelledby="f-funds">
-  <h2 id="f-funds">Chilean mutual funds lend CLP 38.5 trillion to banks, and six banks take 78% of it.</h2>
+<section class="finding" aria-labelledby="c-data">
+  <p class="project"><strong>Data engineering &amp; automation</strong></p>
+  <h2 id="c-data">Every analysis above updates itself: regulator files without an API, checked before they reach a model.</h2>
   <div class="measure">
-    <p>What every Chilean mutual fund held each month from 2019 to 2026, from 3.3 million holdings filed with the regulator. Bank deposits and bonds are half of the industry's assets, and more than half of the fixed income matures within a year. For a bank's liquidity team, that is short-term funding that can leave quickly.</p>
-    <p>In 2021-22 the money left the banks for Central Bank paper, during the pension withdrawals and the first rate hikes. Deposits only got back to their 2019 level in 2024.</p>
+    <p><em>At work:</em> fund and portfolio data collection with Python and web scraping, and controls for a production database migration. <em>Rebuilt here:</em> a tested pipeline for the CMF portal (93 months rebuilt unattended, quality gates that caught real data errors) and a tool that proves a database migration lost nothing.</p>
   </div>
-  <figure>
-    <picture>
-      <source media="(prefers-color-scheme: dark)" srcset="assets/fig/funds-banks-dark.png">
-      <img src="assets/fig/funds-banks-light.png" alt="Bank deposits and bonds held by mutual funds by issuing bank, September 2026" loading="lazy" width="1200" height="753">
-    </picture>
-    <figcaption>Bank deposits and bonds held by mutual funds, by bank, September 2026. Source: CMF fund portfolio files.</figcaption>
-  </figure>
-  <p class="project">
-    <strong>chile-mutual-funds-analytics</strong>
-    <a href="https://github.com/IgnacioMendozaRojas/chile-mutual-funds-analytics">Findings and code</a>
-  </p>
-</section>
-
-<section class="finding" aria-labelledby="f-ccr">
-  <h2 id="f-ccr">A zero-threshold collateral agreement cuts this portfolio's peak exposure from 19 million to 5.7 million.</h2>
-  <div class="measure">
-    <p>A Monte Carlo engine for derivatives counterparty risk: Hull-White rates and FX simulation, netting and collateral, expected exposure, PFE, Basel EEPE, and CVA/DVA. Every pricing component is checked against a closed-form result. On the example netting set, netting alone cuts CVA by 26%.</p>
-  </div>
-  <figure>
-    <picture>
-      <source media="(prefers-color-scheme: dark)" srcset="assets/fig/ccr-collateral-dark.png">
-      <img src="assets/fig/ccr-collateral-light.png" alt="Expected exposure over time for three collateral agreements: uncollateralised, threshold 5 million and zero threshold" loading="lazy" width="1350" height="690">
-    </picture>
-    <figcaption>Expected exposure under three collateral agreements, 10,000 paths.</figcaption>
-  </figure>
-  <p class="project">
-    <strong>counterparty-credit-risk</strong>
-    <a href="https://github.com/IgnacioMendozaRojas/counterparty-credit-risk">Method, validation and code</a>
-  </p>
-</section>
-
-<section class="finding" aria-labelledby="f-rest">
-  <h2 id="f-rest">The recipes said food cost was 17% of sales. The purchases said 36%.</h2>
-  <div class="measure">
-    <p>Menu engineering, yield-adjusted ingredient usage and break-even on the real operating data of a restaurant I ran in 2023. The gap between recipe cost and actual spending is waste, portioning and price drift, and it moves break-even sales up by 30%.</p>
-  </div>
-  <figure>
-    <picture>
-      <source media="(prefers-color-scheme: dark)" srcset="assets/fig/rest-breakeven-dark.png">
-      <img src="assets/fig/rest-breakeven-light.png" alt="Break-even monthly sales rising with food cost percentage, against average monthly sales" loading="lazy" width="1350" height="750">
-    </picture>
-    <figcaption>Break-even sales by food cost. Business, staff and suppliers anonymised.</figcaption>
-  </figure>
-  <p class="project">
-    <strong>restaurant-analytics</strong>
-    <a href="https://github.com/IgnacioMendozaRojas/restaurant-analytics">Analysis and code</a>
-  </p>
-</section>
-
-<section class="section" aria-labelledby="h-tools">
-  <h2 id="h-tools">Data tools</h2>
   <ul class="tools measure">
-    <li><a href="https://github.com/IgnacioMendozaRojas/cmf-ffmm-etl">cmf-ffmm-etl</a><br>Monthly pipeline that scrapes the holdings of every Chilean mutual fund from the regulator's portal, which has no API, runs quality checks and loads them into any SQL database.</li>
-    <li><a href="https://github.com/IgnacioMendozaRojas/db-migration-validator">db-migration-validator</a><br>Proves a database migration lost nothing: structure, row counts, content fingerprints and permissions, across Oracle, SQL Server, PostgreSQL and MySQL.</li>
+    <li><a href="https://github.com/IgnacioMendozaRojas/cmf-ffmm-etl">cmf-ffmm-etl</a><br>Browser-like client for a portal with no API, seven quality checks, idempotent loads to any SQL database or a typed table in memory.</li>
+    <li><a href="https://github.com/IgnacioMendozaRojas/db-migration-validator">db-migration-validator</a><br>Structure, row counts, order-independent content fingerprints and grants, across Oracle, SQL Server, PostgreSQL and MySQL; fails the cutover on any critical finding.</li>
   </ul>
+</section>
+
+<section class="finding" aria-labelledby="c-cf">
+  <p class="project"><strong>Corporate finance &amp; unit economics</strong></p>
+  <h2 id="c-cf">The recipes said food cost was 17% of sales. The purchases said 36%, and break-even sales were 30% higher than planned.</h2>
+  <div class="measure">
+    <p><em>At work:</em> financial planning for four clinics and €11M of capex at Red Interclínica. <em>Rebuilt here:</em> menu engineering, yield-adjusted ingredient usage and break-even on the real operating data of a restaurant I ran in 2023, anonymised.</p>
+  </div>
+  <figure>
+    <picture>
+      <source media="(prefers-color-scheme: dark)" srcset="assets/fig/restaurant-dark.png">
+      <img src="assets/fig/restaurant-light.png" alt="Break-even monthly sales rising with food cost percentage, against average monthly sales" loading="lazy" width="1350" height="750">
+    </picture>
+  </figure>
+  <p class="project"><a href="https://github.com/IgnacioMendozaRojas/restaurant-analytics">restaurant-analytics: analysis and code</a></p>
 </section>
 
 <section class="section" aria-labelledby="h-cv">
@@ -120,7 +127,7 @@
     <tr><td>2020 – 2021</td><td>MSc in Finance, Universidad Adolfo Ibáñez</td></tr>
     <tr><td>2016 – 2019</td><td>BSc in Business Administration and Economics, Universidad Adolfo Ibáñez</td></tr>
   </table>
-  <p class="cv-note">Winner, CFA Institute Research Challenge, South America Regional Final, 2020–2021.</p>
+  <p class="cv-note">Winner with my team, CFA Institute Research Challenge, South America Regional Final, 2020–2021.</p>
 </section>
 
 <footer>
