@@ -43,17 +43,20 @@
 
 <section class="finding" aria-labelledby="c-liq">
   <p class="project"><strong>Liquidity risk &amp; funding</strong></p>
-  <h2 id="c-liq">Six banks take 78% of the CLP 38.5 trillion Chilean mutual funds lend to banks, and that money has run before: 25% in one month.</h2>
+  <h2 id="c-liq">Chilean banks passed on 69% of the 2021-22 rate hikes to their term deposits, but only 62% of the 2023-25 cuts.</h2>
   <div class="measure">
-    <p><em>At work:</em> deposit decay, ILAAP projections under Basel III and cash-flow stress tests. <em>Rebuilt here:</em> every mutual fund's holdings since 2019, read from regulator files as a funding question: concentration by bank, maturity (56% within a year) and observed run-off rates of 25% in a month and 63% in a year, a calibration for a stress scenario. Updated monthly by a scheduled workflow.</p>
+    <p><em>At work:</em> deposit decay, ILAAP projections under Basel III and cash-flow stress tests. <em>Rebuilt here:</em> every Chilean bank's balance sheet and income statement since 2008, read as a liquidity question: the stable core of deposits and stress outflows (demand deposits rose 43% above trend in the pandemic, then ran 20% in a year), forecasts tested out of sample, and deposit betas by rate cycle. Mutual funds, which hold 15% of these banks' term deposits and once withdrew 63% in a year, are a concentrated source: banks that rely on them more passed on more of the hikes. Both updated monthly by scheduled workflows.</p>
   </div>
   <figure>
     <picture>
-      <source media="(prefers-color-scheme: dark)" srcset="assets/fig/funds-dark.png">
-      <img src="assets/fig/funds-light.png" alt="Bank deposits and bonds held by mutual funds by bank, September 2026: six banks hold 4.7 to 5.3 trillion pesos each" loading="lazy" width="1350" height="690">
+      <source media="(prefers-color-scheme: dark)" srcset="assets/fig/liquidity-dark.png">
+      <img src="assets/fig/liquidity-light.png" alt="Cost of term deposits of Chilean banks and the policy rate, 2012-2026: beta of 0.69 in the 2021-22 hikes and 0.62 in the 2023-25 cuts" loading="lazy" width="1350" height="720">
     </picture>
   </figure>
-  <p class="project"><a href="https://github.com/IgnacioMendozaRojas/chile-mutual-funds-analytics">chile-mutual-funds-analytics: findings and code</a></p>
+  <ul class="tools measure">
+    <li><a href="https://github.com/IgnacioMendozaRojas/chile-bank-liquidity">chile-bank-liquidity</a><br>Deposit stability, stress outflows and backtests, SARIMAX against exponential smoothing, mutual-fund funding and deposit betas, from the CMF API with a fallback to its monthly files.</li>
+    <li><a href="https://github.com/IgnacioMendozaRojas/chile-mutual-funds-analytics">chile-mutual-funds-analytics</a><br>Every mutual fund's holdings since 2019: six banks take 78% of the CLP 38.5 trillion funds lend to banks, 56% of it matures within a year.</li>
+  </ul>
 </section>
 
 <section class="finding" aria-labelledby="c-credit">

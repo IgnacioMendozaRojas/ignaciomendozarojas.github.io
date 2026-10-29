@@ -17,7 +17,7 @@ REPOS = SITE.parent
 
 FIGURES = {
     "ccr": "counterparty-credit-risk/docs/pfe-by-csa-{theme}.png",
-    "funds": "chile-mutual-funds-analytics/docs/figures/banks-{theme}.png",
+    "liquidity": "chile-bank-liquidity/docs/figures/cost-{theme}.png",
     "clinics": "chile-clinics-benchmark/docs/figures/allowance_coverage-{theme}.png",
     "sqm": "equity-research-engine/companies/sqm/reports/figures/montecarlo-2026-10-16-{theme}.png",
     "restaurant": "restaurant-analytics/docs/break_even_{theme}.png",
