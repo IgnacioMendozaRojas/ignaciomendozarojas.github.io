@@ -16,7 +16,7 @@ SITE = Path(__file__).resolve().parents[1]
 REPOS = SITE.parent
 
 FIGURES = {
-    "ccr": "counterparty-credit-risk/docs/pfe-by-csa-{theme}.png",
+    "ccr": "counterparty-credit-risk/docs/margin-period-{theme}.png",
     "liquidity": "chile-bank-liquidity/docs/figures/cost-{theme}.png",
     "clinics": "chile-clinics-benchmark/docs/figures/allowance_coverage-{theme}.png",
     "sqm": "equity-research-engine/companies/sqm/reports/figures/montecarlo-2026-10-16-{theme}.png",

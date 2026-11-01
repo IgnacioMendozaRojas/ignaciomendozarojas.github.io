@@ -28,14 +28,14 @@
 
 <section class="finding" aria-labelledby="c-ccr">
   <p class="project"><strong>Counterparty credit risk &amp; derivatives</strong></p>
-  <h2 id="c-ccr">Daily margining cuts this portfolio's peak exposure by 70%, from 19.1 to 5.7 million.</h2>
+  <h2 id="c-ccr">A longer margin period raises CVA by 44% but barely moves peak exposure.</h2>
   <div class="measure">
-    <p><em>At work:</em> the stochastic PFE models behind counterparty limits, and CVA/DVA sensitivities. <em>Rebuilt here:</em> a Monte Carlo engine with Hull-White rates and FX, netting and collateral, EE, PFE, Basel EEPE and CVA/DVA, each pricer checked against a closed form. Netting alone cuts CVA by 26%.</p>
+    <p><em>At work:</em> the stochastic PFE models behind counterparty limits, and CVA/DVA sensitivities. <em>Rebuilt here:</em> a Monte Carlo engine with Hull-White rates and FX, netting and collateral, EE, PFE, Basel EEPE and CVA/DVA, each pricer checked against a closed form. <em>Found:</em> under daily margining, going from a 10- to a 20-day margin period of risk adds 44% to CVA but 5% to peak PFE, because the peak sits on the FX forward's settlement date, where the exposure is the settling cash flow rather than market moves. A limit set on peak PFE would miss what the longer margin period costs. The rate-FX correlation, by contrast, moves CVA by 7% across -0.5 to +0.5.</p>
   </div>
   <figure>
     <picture>
       <source media="(prefers-color-scheme: dark)" srcset="assets/fig/ccr-dark.png">
-      <img src="assets/fig/ccr-light.png" alt="PFE under three collateral agreements: uncollateralised peaks at 19.1 million, daily margining stays near 2 million" loading="lazy" width="1350" height="720">
+      <img src="assets/fig/ccr-light.png" alt="PFE under daily margining with margin periods of 5, 10 and 20 days: the level rises with the margin period, but the peak at the FX forward's settlement is about 6 million in all three" loading="lazy" width="1350" height="720">
     </picture>
   </figure>
   <p class="project"><a href="https://github.com/IgnacioMendozaRojas/counterparty-credit-risk">counterparty-credit-risk: method, validation and code</a></p>
@@ -43,14 +43,14 @@
 
 <section class="finding" aria-labelledby="c-liq">
   <p class="project"><strong>Liquidity risk &amp; funding</strong></p>
-  <h2 id="c-liq">Chilean banks passed on 69% of the 2021-22 rate hikes to their term deposits, but only 62% of the 2023-25 cuts.</h2>
+  <h2 id="c-liq">Rate hikes kept reaching deposit costs after the last move; cuts did not.</h2>
   <div class="measure">
-    <p><em>At work:</em> deposit decay, ILAAP projections under Basel III and cash-flow stress tests. <em>Rebuilt here:</em> every Chilean bank's balance sheet and income statement since 2008, read as a liquidity question: the stable core of deposits and stress outflows (demand deposits rose 43% above trend in the pandemic, then ran 20% in a year), forecasts tested out of sample, and deposit betas by rate cycle. Mutual funds, which hold 15% of these banks' term deposits and once withdrew 63% in a year, are a concentrated source: banks that rely on them more passed on more of the hikes. Both updated monthly by scheduled workflows.</p>
+    <p><em>At work:</em> deposit decay, ILAAP projections under Basel III and cash-flow stress tests. <em>Rebuilt here:</em> every Chilean bank's balance sheet and income statement since 2008, read as a liquidity question: the stable core of deposits and stress outflows (demand deposits rose 43% above trend in the pandemic, then ran 20% in a year), forecasts tested out of sample, and deposit betas by rate cycle. <em>Found:</em> at the last move, banks had passed on the same share of the 2021-22 hikes and the 2023-25 cuts (0.60 and 0.59 per point of policy rate); three months later the hikes had reached 0.69 and the cuts 0.62. Across ten banks the gap is +0.06 (95% CI 0.02 to 0.09), positive at eight. Mutual funds, which hold 15% of these banks' term deposits and once withdrew 63% in a year, are a concentrated source: banks that rely on them more passed on more of the hikes. Both updated monthly by scheduled workflows.</p>
   </div>
   <figure>
     <picture>
       <source media="(prefers-color-scheme: dark)" srcset="assets/fig/liquidity-dark.png">
-      <img src="assets/fig/liquidity-light.png" alt="Cost of term deposits of Chilean banks and the policy rate, 2012-2026: beta of 0.69 in the 2021-22 hikes and 0.62 in the 2023-25 cuts" loading="lazy" width="1350" height="720">
+      <img src="assets/fig/liquidity-light.png" alt="Cost of term deposits of Chilean banks and the policy rate, 2012-2026: three months after each cycle, beta of 0.69 for the 2021-22 hikes and 0.62 for the 2023-25 cuts; across banks the gap is +0.06, 95% CI 0.02 to 0.09" loading="lazy" width="1350" height="720">
     </picture>
   </figure>
   <ul class="tools measure">
@@ -61,9 +61,9 @@
 
 <section class="finding" aria-labelledby="c-credit">
   <p class="project"><strong>Credit risk &amp; financial statement analysis</strong></p>
-  <h2 id="c-credit">Through the Isapre crisis, Clínica Las Condes' credit-loss allowance rose from 12.6% to 53.8% of its receivables; its peers barely moved.</h2>
+  <h2 id="c-credit">The Isapre crisis quadrupled Clínica Las Condes' loss allowance; its peers barely moved.</h2>
   <div class="measure">
-    <p><em>At work:</em> competitive benchmarking of Chilean clinic groups at Red Interclínica, built by hand in Excel. <em>Rebuilt here:</em> the same benchmark from every quarterly XBRL filing at the CMF since 2016, with receivables ageing, cost of risk, restatements logged and the order in which each indicator broke. Collection days moved first, in 2022. Updated twice a month.</p>
+    <p><em>At work:</em> competitive benchmarking of Chilean clinic groups at Red Interclínica, built by hand in Excel. <em>Rebuilt here:</em> the same benchmark from every quarterly XBRL filing at the CMF since 2016, with receivables ageing, cost of risk, restatements logged and the order in which each indicator broke. <em>Found:</em> Clínica Las Condes' allowance for credit losses went from 12.6% to 53.8% of receivables, and collection days broke first, in 2022, a year before the losses showed. Updated twice a month.</p>
   </div>
   <figure>
     <picture>
@@ -76,9 +76,9 @@
 
 <section class="finding" aria-labelledby="c-val">
   <p class="project"><strong>Equity valuation &amp; investment analysis</strong></p>
-  <h2 id="c-val">At about US$60, SQM's share price implies lithium at US$25,000 a tonne for the long run. My valuation, on a US$15,000 deck, gives US$42.</h2>
+  <h2 id="c-val">SQM's share price implies lithium at US$25,000 a tonne, well above my deck.</h2>
   <div class="measure">
-    <p><em>Background:</em> my team won the CFA Institute Research Challenge for South America in 2021 covering SQM, and I evaluated projects on a clinic group's investment committee (NPV, IRR, payback). <em>Rebuilt here:</em> a segment-by-segment valuation engine from public filings, DCF and residual income, 10,000 simulated price paths, and the 2020 valuation held against what happened next. The implied lithium price is recomputed every week.</p>
+    <p><em>Background:</em> my team won the CFA Institute Research Challenge for South America in 2021 covering SQM, and I evaluated projects on a clinic group's investment committee (NPV, IRR, payback). <em>Rebuilt here:</em> a segment-by-segment valuation engine from public filings, DCF and residual income, 10,000 simulated price paths, and the 2020 valuation held against what happened next. <em>Found:</em> at about US$60 a share, the market prices a long-run lithium price of about US$25,000 a tonne; on a US$15,000 deck my valuation gives US$42. The implied price is recomputed every week.</p>
   </div>
   <figure>
     <picture>
@@ -95,9 +95,9 @@
 
 <section class="finding" aria-labelledby="c-data">
   <p class="project"><strong>Data engineering &amp; automation</strong></p>
-  <h2 id="c-data">Every analysis above updates itself: regulator files without an API, checked before they reach a model.</h2>
+  <h2 id="c-data">One misfiled forward would have shown the funds' FX hedge at −150% instead of 16%.</h2>
   <div class="measure">
-    <p><em>At work:</em> fund and portfolio data collection with Python and web scraping, and controls for a production database migration. <em>Rebuilt here:</em> a tested pipeline for the CMF portal (93 months rebuilt unattended, quality gates that caught real data errors) and a tool that proves a database migration lost nothing.</p>
+    <p><em>At work:</em> fund and portfolio data collection with Python and web scraping, and controls for a production database migration. <em>Rebuilt here:</em> a tested pipeline for the CMF portal (93 months rebuilt unattended) and a tool that proves a database migration lost nothing. <em>Found:</em> in November 2020 one fund filed a dollar forward in pesos instead of thousands of pesos, CLP 8.2 trillion; taken as filed it turns the industry's hedge ratio from 16% to −150%. The checks rescale it, and exclude the 12% of forward rows (10,682 since 2019) that do not reconcile notional and strike. Every analysis above updates itself on these checks.</p>
   </div>
   <ul class="tools measure">
     <li><a href="https://github.com/IgnacioMendozaRojas/cmf-ffmm-etl">cmf-ffmm-etl</a><br>Browser-like client for a portal with no API, seven quality checks, idempotent loads to any SQL database or a typed table in memory.</li>
@@ -107,9 +107,9 @@
 
 <section class="finding" aria-labelledby="c-cf">
   <p class="project"><strong>Corporate finance &amp; unit economics</strong></p>
-  <h2 id="c-cf">The recipes said food cost was 17% of sales. The purchases said 36%, and break-even sales were 30% higher than planned.</h2>
+  <h2 id="c-cf">Real food cost was double what the recipes said.</h2>
   <div class="measure">
-    <p><em>At work:</em> financial planning for four clinics and €11M of capex at Red Interclínica. <em>Rebuilt here:</em> menu engineering, yield-adjusted ingredient usage and break-even on the real operating data of a restaurant I ran in 2023, anonymised.</p>
+    <p><em>At work:</em> financial planning for four clinics and €11M of capex at Red Interclínica. <em>Rebuilt here:</em> menu engineering, yield-adjusted ingredient usage and break-even on the real operating data of a restaurant I ran in 2023, anonymised. <em>Found:</em> recipes put food cost at 17% of sales, purchases at 36%, which lifts monthly break-even sales by 30%.</p>
   </div>
   <figure>
     <picture>
@@ -153,11 +153,12 @@
     <tr><td>2023 – present</td><td>Financial Risk &amp; Modelling Analyst, Banco Ripley, Chile</td></tr>
     <tr><td>2023</td><td>Strategy &amp; Investment Analyst, Red Interclínica, Chile</td></tr>
     <tr><td>2021 – 2023</td><td>Financial Risk Analyst, Banco Ripley, Chile</td></tr>
-    <tr><td>2025 – 2027</td><td>MSc in Business Research, Universitat de Barcelona</td></tr>
+    <tr><td>2025 – 2027</td><td>MSc in Business Research, Universitat de Barcelona. Thesis: <em>Artificial Intelligence Use and Labour Cost Stickiness: Evidence from Spanish Firms</em></td></tr>
     <tr><td>2020 – 2021</td><td>MSc in Finance, Universidad Adolfo Ibáñez</td></tr>
     <tr><td>2016 – 2019</td><td>BSc in Business Administration and Economics, Universidad Adolfo Ibáñez</td></tr>
   </table>
   <p class="cv-note">Winner with my team, CFA Institute Research Challenge, South America Regional Final, 2020–2021.</p>
+  <p class="cv-note">Languages: Spanish (native), English (B2–C1). Tools: Python (pandas, NumPy, statsmodels, matplotlib), SQL (SQL Server, PostgreSQL, Oracle), Excel and VBA, Power BI, Git and GitHub Actions.</p>
 </section>
 
 <footer>
