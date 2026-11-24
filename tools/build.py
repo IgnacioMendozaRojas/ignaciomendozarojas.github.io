@@ -1,4 +1,5 @@
-"""Copy figures from the project repositories and render the SQM reports as pages.
+"""Copy figures from the project repositories, fill the figures in index.html from their
+results.json, and render the SQM reports as pages.
 
 Run from the site root with the project repositories checked out next to it:
     python tools/build.py
@@ -6,6 +7,7 @@ Run from the site root with the project repositories checked out next to it:
 
 from __future__ import annotations
 
+import json
 import re
 import shutil
 from pathlib import Path
@@ -23,6 +25,10 @@ FIGURES = {
     "restaurant": "restaurant-analytics/docs/break-even-{theme}.png",
     "governance": "ownership-and-boards/docs/figures/representation-{theme}.png",
 }
+# figures in index.html sit between <!--x:repo.key--> and <!--/x--> and come from the
+# "facts" of each repository's results.json, so the page never drifts from the repo
+RESULTS = {"liquidity": "chile-bank-liquidity/results.json"}
+MARK = re.compile(r"<!--x:([a-z]+)\.([a-z0-9_]+)-->(.*?)<!--/x-->", re.DOTALL)
 REPORTS = REPOS / "equity-research-engine/companies/sqm/reports"
 TEMPLATE = """<!doctype html>
 <html lang="en">
@@ -54,6 +60,26 @@ def figures() -> None:
             shutil.copy(REPOS / src.format(theme=theme), out / f"{name}-{theme}.png")
 
 
+def fill(text: str, facts: dict[str, dict[str, str]]) -> str:
+    """Replace each marked figure; a key missing from results.json raises."""
+
+    def sub(mo: re.Match) -> str:
+        repo, key = mo.group(1), mo.group(2)
+        if key not in facts.get(repo, {}):
+            raise KeyError(f"index.html marker {repo}.{key} has no value in {RESULTS.get(repo)}")
+        return f"<!--x:{repo}.{key}-->{facts[repo][key]}<!--/x-->"
+
+    return MARK.sub(sub, text)
+
+
+def numbers() -> None:
+    facts = {
+        repo: json.loads((REPOS / path).read_text(encoding="utf-8"))["facts"] for repo, path in RESULTS.items()
+    }
+    page = SITE / "index.html"
+    page.write_text(fill(page.read_text(encoding="utf-8"), facts), encoding="utf-8")
+
+
 def reports() -> None:
     out = SITE / "research/sqm"
     (out / "figures").mkdir(parents=True, exist_ok=True)
@@ -77,5 +103,6 @@ def reports() -> None:
 
 if __name__ == "__main__":
     figures()
+    numbers()
     reports()
     print("built")
