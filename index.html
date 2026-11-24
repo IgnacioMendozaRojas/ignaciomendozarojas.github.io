@@ -44,17 +44,17 @@
 
 <section class="finding" aria-labelledby="c-liq">
   <p class="project"><strong>Liquidity risk &amp; funding</strong></p>
-  <h2 id="c-liq">Rate hikes kept reaching deposit costs after the last move; cuts did not.</h2>
+  <h2 id="c-liq"><!--x:liquidity.cost_headline-->Banks pass rate hikes and cuts on to deposits alike<!--/x-->; what differs is how far a cycle leaves them from the policy rate.</h2>
   <div class="measure">
-    <p>Three months after each cycle, Chilean banks had passed on 0.69 of the 2021-22 hikes but 0.62 of the 2023-25 cuts; across ten banks the gap is +0.06 (95% CI 0.02 to 0.09). At the last move the two were equal, so the difference is in what comes after: hikes keep repricing maturing deposits, cuts stop. For a liquidity or ALM model, a symmetric deposit beta overstates how fast funding gets cheaper.</p>
+    <p>Within <!--x:liquidity.pass_lags-->4<!--/x--> months, <!--x:liquidity.pass_up-->0.44<!--/x--> of a rise in the policy rate and <!--x:liquidity.pass_down-->0.42<!--/x--> of a fall reach the cost of term deposits of Chilean banks (difference p = <!--x:liquidity.pass_p-->0.75<!--/x-->), and <!--x:liquidity.spread_banks_sig-->0<!--/x--> of <!--x:liquidity.spread_banks-->10<!--/x--> large banks show a significant difference. What changes is the starting point: when the <!--x:liquidity.hike_years-->2021-22<!--/x--> hikes ended, deposit costs were <!--x:liquidity.gap_end_hikes-->4.3<!--/x--> points below the policy rate and kept repricing towards it; when the <!--x:liquidity.cut_years-->2023-25<!--/x--> cuts ended, only <!--x:liquidity.gap_end_cuts-->0.2<!--/x--> points. For a liquidity or ALM model, the gap left at the end of a cycle matters more than the direction of the rate.</p>
   </div>
   <figure>
     <picture>
       <source media="(prefers-color-scheme: dark)" srcset="assets/fig/liquidity-dark.png">
-      <img src="assets/fig/liquidity-light.png" alt="Cost of term deposits of Chilean banks and the policy rate, 2012-2026: three months after each cycle, beta of 0.69 for the 2021-22 hikes and 0.62 for the 2023-25 cuts; across banks the gap is +0.06, 95% CI 0.02 to 0.09" loading="lazy" width="1350" height="720">
+      <img src="assets/fig/liquidity-light.png" alt="Cost of term deposits of Chilean banks and the policy rate since 2012, with the last hike and cut cycles marked and the pass-through of rises and falls from an error-correction model" loading="lazy" width="1350" height="720">
     </picture>
   </figure>
-  <p class="context measure"><span><strong>Built:</strong> balance sheets and income statements of every Chilean bank since 2008: stable core, stress outflows, out-of-sample forecasts, mutual-fund funding and deposit betas, updated monthly.</span> <span><strong>At work:</strong> deposit decay, ILAAP projections under Basel III and cash-flow stress tests.</span> <span class="links"><a href="https://github.com/IgnacioMendozaRojas/chile-bank-liquidity">chile-bank-liquidity</a> · <a href="https://github.com/IgnacioMendozaRojas/chile-mutual-funds-analytics">chile-mutual-funds-analytics</a></span></p>
+  <p class="context measure"><span><strong>Built:</strong> balance sheets and income statements of every Chilean bank since 2008: stable core, stress outflows, out-of-sample forecasts, mutual-fund funding and deposit betas, updated monthly.</span> <span><strong>At work:</strong> the deposit behaviour assumptions that liquidity risk and ALM models rely on: stable core, run-off under stress and deposit betas.</span> <span class="links"><a href="https://github.com/IgnacioMendozaRojas/chile-bank-liquidity">chile-bank-liquidity</a> · <a href="https://github.com/IgnacioMendozaRojas/chile-mutual-funds-analytics">chile-mutual-funds-analytics</a></span></p>
 </section>
 
 <section class="finding" aria-labelledby="c-credit">
@@ -141,7 +141,7 @@
 </section>
 
 <footer>
-  Everything here uses public data or my own anonymised records, and no employer code, data or parameters. The equity reports are a portfolio exercise, not investment advice.
+  Everything here uses public data or my own anonymised records, and no employer code, data or parameters. The equity reports are a portfolio exercise, not investment advice. The views are my own and not those of my employer.
 </footer>
 
 </main>
